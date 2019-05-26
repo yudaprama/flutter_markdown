@@ -1,3 +1,7 @@
+## 0.2.1
+
+* Add `physics` and `shrinkWrap` property
+
 ## 0.2.0
 
 * Updated environment sdk constraints to make the package
