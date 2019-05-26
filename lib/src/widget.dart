@@ -205,6 +205,8 @@ class Markdown extends MarkdownWidget {
     MarkdownTapLinkCallback onTapLink,
     Directory imageDirectory,
     this.padding: const EdgeInsets.all(16.0),
+    this.physics,
+    this.shrinkWrap = false,
   }) : super(
     key: key,
     data: data,
@@ -217,8 +219,20 @@ class Markdown extends MarkdownWidget {
   /// The amount of space by which to inset the children.
   final EdgeInsets padding;
 
+  /// How the scroll view should respond to user input.
+  final ScrollPhysics physics;
+
+  /// Whether the extent of the scroll view in the [scrollDirection] should be
+  /// determined by the contents being viewed.
+  final bool shrinkWrap;
+
   @override
   Widget build(BuildContext context, List<Widget> children) {
-    return new ListView(padding: padding, children: children);
+    return new ListView(
+      padding: padding,
+      children: children,
+      physics: physics,
+      shrinkWrap: shrinkWrap,
+    );
   }
 }
